@@ -4,7 +4,9 @@ import grupo05.es.resumen.model.Lector;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+import java.util.Optional;
 
 @Repository
 public interface LectorRepository extends JpaRepository<Lector, Integer> {
+    Optional<Lector> findByEmailIgnoreCase(String email);
 }

@@ -27,5 +27,8 @@ public class Lector {
     @NotBlank
     @Column(name = "nombre")
     private String nombre;
+    @Column(name = "password")
+    private String password;
+
 
 }

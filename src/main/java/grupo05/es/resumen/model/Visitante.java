@@ -26,5 +26,8 @@ public class Visitante {
     @NotBlank
     @Column(name="email")
     private String email;
+    @Column(name = "password")
+    private String password;
+
 
 }

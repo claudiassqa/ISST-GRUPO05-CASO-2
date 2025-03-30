@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
   const contenedor = document.getElementById('contenedor-libros');
+  const tipoUsuario = localStorage.getItem("tipoUsuario") || "visitante"; // valor por defecto
 
-  fetch('/catalogo/resumenes')
+  fetch(`/catalogo/resumenes?tipo=${tipoUsuario}`)
     .then(response => {
       if (!response.ok) {
         throw new Error('Error al cargar los resúmenes');
@@ -9,6 +10,11 @@ document.addEventListener('DOMContentLoaded', () => {
       return response.json();
     })
     .then(resumenes => {
+      if (resumenes.length === 0) {
+        contenedor.innerHTML = '<p>No hay resúmenes disponibles para tu tipo de usuario.</p>';
+        return;
+      }
+
       resumenes.forEach(resumen => {
         const card = document.createElement('div');
         card.classList.add('resumen-card');
@@ -32,3 +38,4 @@ document.addEventListener('DOMContentLoaded', () => {
 function verResumen(id) {
   window.location.href = `/frontend/pages/resumen.html?id=${id}`;
 }
+
