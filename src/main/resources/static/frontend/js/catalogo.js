@@ -30,5 +30,5 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function verResumen(id) {
-  window.location.href = `/frontend/resumen.html?id=${id}`;
+  window.location.href = `/frontend/pages/resumen.html?id=${id}`;
 }

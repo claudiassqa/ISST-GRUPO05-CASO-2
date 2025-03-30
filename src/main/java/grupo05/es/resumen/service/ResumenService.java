@@ -1,7 +1,7 @@
 package grupo05.es.resumen.service;
 
 import grupo05.es.resumen.model.Resumen;
-import grupo05.es.resumen.repository.ResumenInterface;
+import grupo05.es.resumen.repository.ResumenRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -14,7 +14,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class ResumenService {
 
-    private final ResumenInterface resumenRepository;
+    private final ResumenRepository resumenRepository;
 
     public List<Resumen> getAllResumenes() {
         return resumenRepository.findAll();
